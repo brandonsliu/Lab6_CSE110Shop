@@ -83,7 +83,8 @@ class ProductItem extends HTMLElement {
     p.setAttribute('class', 'price');
     p.innerText = "price";
     const b = list.appendChild(document.createElement('button'));
-    b.setAttribute('onclick', "alert('Added to Cart!')");
+    b.setAttribute('onclick', 'updateCart(event)');
+    b.setAttribute('id', '');
     b.innerText = "Add to Cart";
     this.shadowRoot.append(list);
   }
@@ -100,4 +101,6 @@ function updateStyle(elem){
   shadow.querySelector('img').alt = `${elem.getAttribute('alt')}`;
   shadow.querySelector('.title').textContent = `${elem.getAttribute('title')}`;
   shadow.querySelector('.price').textContent = `${elem.getAttribute('price')}`;
+  shadow.querySelector('button').id = `${elem.getAttribute('id')}`;
+  shadow.querySelector('button').textContent = `${elem.getAttribute('contained')}`;
 }
